@@ -63,5 +63,59 @@ fn main() {
     //arrays like everything else
     let comp2 : [u32; 3] = [1, 2, 3];
     println!("array integer: { }", comp2[2]);
+    println!("{ }", square(2));
+    exampleLogic(1);
+}
 
+//functions
+//this is a function with a parameter and a return value that only contains an expression
+fn square(x: i32) -> i32{
+    x * x
+}
+
+//functions are made up of statements and will typically end with an expression
+//statements perform an action, and expressions will return a value
+//ex: let mut y = getexpression() + 5 is a statement, it doesn't return a final value
+//ex: getexpression() + 5 in itself is an expression, this DOES return a final value
+//expressions do not end with semicolons, it will turn into a statement otherwise, it must be
+//treated as a literal value
+
+//logic flow
+//pretty basic
+fn exampleLogic(x: i32){
+    if x == 1 {
+        println!("one");
+    } else if x == 2 {
+        println!("two");
+    } else if x == 3 {
+        println!("three");
+    } else {
+        //ternary operator equivalent
+        //this works because the whole if else block is an expression which the statement accepts
+        //let val = if true { 5 } else { 6 };
+        println!("no more in dictionary");
+    }
+
+    //loops can be expressions
+    let mut counter = 0;
+    let val = loop {
+        counter += 1;
+        if counter >= 10{
+            break counter;
+        }
+    };
+    println!("{ }", val);
+
+    //conditional while is the same
+    while counter < 15{
+        counter += 1;
+    }
+    println!("{ }", counter);
+
+    let arr : [u32; 5] = [1, 2, 3, 4, 5];
+    //for loop works like python
+    //for <value> in <set>
+    for x in arr.iter(){
+        println!("{ }", x);
+    }
 }
