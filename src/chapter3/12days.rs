@@ -17,7 +17,7 @@ fn main(){
         stringbuffer.push_str("On the ");
         stringbuffer.push_str(stringindex[x].0);
         stringbuffer.push_str(" day of Christmas my true love gave to me: ");
-        for x2 in (0..x).rev(){
+        for x2 in (0..x+1).rev(){
             stringbuffer.push_str(stringindex[x2].1);
             stringbuffer.push_str(", ");
         }
