@@ -12,8 +12,10 @@ fn main() {
 
         let mut input = String::new();
 
-        io::stdin()
-            .read_line(&mut input);
+        match io::stdin().read_line(&mut input) {
+            Ok(_) => {println!("{}", input);},
+            Err(_) => { println!("readline failed!"); break;}
+        };
     
         let no : u32 = match input.trim().parse() {
             Ok(num) => num,
