@@ -1,29 +1,12 @@
+use std::io;
+
 fn main() {
     println!("hello world");
-    let drive_train_data = GearboxData {
-        output_ratio: (3./1.), 
-        encoder_cpr: 256,
-        controller_type: ControllerType::TalonSRX(),
-        motor_data: MotorData{ max_rpm: 2900, encoder_present:true }
-    };
-}
+    println!("guess the number");
 
-struct GearboxData {
-    output_ratio: f64,
-    encoder_cpr: i32,
-    controller_type: ControllerType,
-    motor_data: MotorData
-}
+    let mut guess = String::new();
 
-struct MotorData{
-        max_rpm: i32,
-        encoder_present: bool,
-}
+    io::stdin().read_line(&mut guess).expect("line read failed");
 
-enum ControllerType {
-    PWM(),
-    TalonSRX(),
-    VictorSPX(),
-    SparkMax(),
-    Falcon500()
+    println!("you guessed {}", guess);
 }
